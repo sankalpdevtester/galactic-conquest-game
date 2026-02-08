@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galactic Conquest</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- 3D Canvas -->
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- HUD Overlay -->
+        <div id="hud">
+            <div id="top-bar">
+                <div class="resource-display">
+                    <span class="resource">⚡ Energy: <span id="energy">1000</span></span>
+                    <span class="resource">⚙️ Metal: <span id="metal">500</span></span>
+                    <span class="resource">💎 Crystals: <span id="crystals">100</span></span>
+                </div>
+                <div class="game-info">
+                    <span id="game-time">00:00</span>
+                    <span id="population">👥 10/50</span>
+                </div>
+            </div>
+
+            <div id="bottom-panel">
+                <div id="selection-info" class="panel">
+                    <h3>Selection</h3>
+                    <div id="selection-details">
+                        <p>No unit selected</p>
+                    </div>
+                </div>
+
+                <div id="build-menu" class="panel hidden">
+                    <h3>Build Menu</h3>
+                    <div class="build-options">
+                        <button class="build-btn" data-unit="scout">
+                            🛸 Scout Ship<br>
+                            <small>⚡50 ⚙️25</small>
+                        </button>
+                        <button class="build-btn" data-unit="fighter">
+                            ⚔️ Fighter<br>
+                            <small>⚡100 ⚙️50</small>
+                        </button>
+                        <button class="build-btn" data-unit="cruiser">
+                            🚀 Cruiser<br>
+                            <small>⚡200 ⚙️100 💎20</small>
+                        </button>
+                        <button class="build-btn" data-unit="battleship">
+                            🛡️ Battleship<br>
+                            <small>⚡500 ⚙️250 💎50</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="minimap" class="panel">
+                    <canvas id="minimap-canvas" width="200" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading Screen -->
+        <div id="loading-screen">
+            <h1>⭐ GALACTIC CONQUEST ⭐</h1>
+            <div class="loading-spinner"></div>
+            <p>Initializing star systems...</p>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="hidden">
+            <h1 id="game-over-title">Victory!</h1>
+            <p id="game-over-message">You have conquered the galaxy!</p>
+            <button id="restart-btn">Play Again</button>
+        </div>
+    </div>
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- Game Scripts -->
+    <script type="module" src="src/game.js"></script>
+</body>
+</html>
